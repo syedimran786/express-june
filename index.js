@@ -1,6 +1,8 @@
 const express = require('express');
+require('dotenv').config();
 const empRoutes = require('./routes/employees.routes');
 let connectDb = require('./db/connect');
+
 
 let app = express();
 app.use(express.json())
@@ -21,7 +23,7 @@ let startServer = async () => {
     try {
         await connectDb();
         console.log("MongoDb Connected Sucessfully")
-        app.listen(4000, () => { console.log("Server is Running on port 4000") })
+        app.listen(process.env.PORT, () => { console.log(`Server is Running on port ${process.env.PORT}`) })
     }
     catch (err) {
         console.log(err)
