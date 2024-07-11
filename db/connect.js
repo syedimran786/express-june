@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-function connectDb() {
-    return mongoose.connect("mongodb://localhost:27017/company")
+function connectDb(url) {
+    return mongoose.connect(url)
 
 }
 

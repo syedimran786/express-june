@@ -21,7 +21,7 @@ app.use((err, req, res, next) => {
 //! Connecting to Database and starting the server
 let startServer = async () => {
     try {
-        await connectDb();
+        await connectDb(process.env.MONGO_DEV_URL);
         console.log("MongoDb Connected Sucessfully")
         app.listen(process.env.PORT, () => { console.log(`Server is Running on port ${process.env.PORT}`) })
     }
